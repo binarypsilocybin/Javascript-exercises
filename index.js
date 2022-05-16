@@ -35,28 +35,38 @@ document.getElementById('app').innerHTML = characters
     (character) =>
       `<div class="wrapper-app">
     <div>Name: ${character.name}</div>
-    <div>Age: ${character.height}</div>
-    <div>Place: ${character.mass}</div>
-    <div>Country: ${character.eye_color}</div>
-    <div>Avatar: ${character.gender}</div>
+    <div>Height: ${character.height}</div>
+    <div>Mass: ${character.mass}</div>
+    <div>Eye Color: ${character.eye_color}</div>
+    <div>Gender: ${character.gender}</div>
   </div>`
   )
   .join('');
 
-document.querySelector('#app').innerHTML =
-  '<ul>' +
-  characters
-    .map((item) => {
-      return '<li>' + item.name + '</li>';
-    })
-    .join('') +
-  '</ul>';
+// Filter < 100
 
 const massSmaller = characters.filter((item) => item.mass < 100);
-console.log(massSmaller);
+
+document.getElementById('app-filter').innerHTML = massSmaller
+  .map(
+    (character) =>
+      `<div class="wrapper-app">
+    <div>Name: ${character.name}</div>
+    <div>Height: ${character.height}</div>
+    <div>Mass: ${character.mass}</div>
+    <div>Eye Color: ${character.eye_color}</div>
+    <div>Gender: ${character.gender}</div>
+  </div>`
+  )
+  .join('');
+
+// Total Mass
 
 const totalMass = characters.reduce((acc, obj) => acc + obj.mass, 0);
-console.log(totalMass);
+
+document.getElementById('app-total').innerHTML = totalMass;
+
+// Total Male
 
 const totalMale = characters.reduce((acc, obj) => {
   if (obj.gender === 'male') {
@@ -64,7 +74,10 @@ const totalMale = characters.reduce((acc, obj) => {
   }
   return acc;
 }, 0);
-console.log(totalMale);
+
+document.getElementById('app-total-male').innerHTML = totalMale
+
+// Total Eye_color blue
 
 let total = 0;
 characters.forEach((item) => {
@@ -73,4 +86,6 @@ characters.forEach((item) => {
   }
 });
 
+
+document.getElementById('app-total-eyecolor').innerHTML = total;
 console.log(total);
