@@ -1,3 +1,15 @@
-h1, h2 {
-  font-family: Lato;
+h1,
+h2 {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+#app {
+  display: flex;
+  gap: 7px;
+}
+.wrapper-app {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid lightgray;
+  max-width: 200px;
 }

@@ -1,3 +1,4 @@
+import './style.css';
 const characters = [
   {
     name: 'Luke Skywalker',
@@ -28,6 +29,28 @@ const characters = [
     gender: 'male',
   },
 ];
+
+document.getElementById('app').innerHTML = characters
+  .map(
+    (character) =>
+      `<div class="wrapper-app">
+    <div>Name: ${character.name}</div>
+    <div>Age: ${character.height}</div>
+    <div>Place: ${character.mass}</div>
+    <div>Country: ${character.eye_color}</div>
+    <div>Avatar: ${character.gender}</div>
+  </div>`
+  )
+  .join('');
+
+document.querySelector('#app').innerHTML =
+  '<ul>' +
+  characters
+    .map((item) => {
+      return '<li>' + item.name + '</li>';
+    })
+    .join('') +
+  '</ul>';
 
 const massSmaller = characters.filter((item) => item.mass < 100);
 console.log(massSmaller);
